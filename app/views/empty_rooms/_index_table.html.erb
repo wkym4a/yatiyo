@@ -1,0 +1,103 @@
+
+  <table >
+    <thead>
+      <tr>
+        <th class = "small_cell">進捗</th>
+        <th class = "small_cell">間取</th>
+        <th class = "middle_cell">アパート名</th>
+        <th class = "small_cell">室番</th>
+        <th class = "small_cell">空き状態</th>
+        <!-- <th>退室予定日</th> -->
+        <th class = "middle_cell">Fレント、特典等</th>
+        <th class = "middle_cell">入居可時期</th>
+        <th class = "middle_cell">面積（㎡）</th>
+        <th class = "small_cell">賃料</th>
+        <th class = "small_cell">共益費</th>
+        <th class = "small_cell">礼金</th>
+        <!-- <th>礼金（金額）</th>
+        <th>礼金（月数）</th> -->
+        <th class = "small_cell">敷金</th>
+        <!-- <th>敷金（金額）</th>
+        <th>敷金（月数）</th> -->
+        <th class = "wide_cell">最寄り駅</th>
+        <th class = "middle_cell">駐車場</th>
+        <th class = "small_cell">(料金)</th>
+        <th class = "small_cell">ペット</th>
+        <th class = "small_cell">ガス</th>
+        <th class = "wide_cell">備考</th>
+        <th class = "wide_cell">鍵</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% empty_rooms.each do |empty_room| %>
+        <tr>
+          <td><%= get_status_name(empty_room.status) %></td>
+          <td><%= get_arrangement_name(empty_room.arrangement) %></td>
+          <td><%= empty_room.name %></td>
+          <td><%= empty_room.number %></td>
+
+
+          <td>
+            <% if empty_room.leave_status == 0 %>
+              <%= "現空" %>
+            <% else %>
+              <%= empty_room.day_to_leave %>退去予定
+            <% end %>
+          </td>
+
+          <!-- <td><%= empty_room.leave_status %></td>
+          <td><%= empty_room.day_to_leave %></td> -->
+
+          <td><%= empty_room.benefit %></td>
+          <td><%= empty_room.day_to_enter %></td>
+          <td><%= empty_room.area %></td>
+          <td><%= empty_room.rent %></td>
+          <td><%= empty_room.common_fee %></td>
+
+          <td>
+            <% if empty_room.thanks_money_status == 0 %>
+              <%= empty_room.thanks_money %>円
+            <% else %>
+              <%= empty_room.thanks_money_month %>ヶ月
+            <% end %>
+          </td>
+          <!-- <td><%= empty_room.thanks_money_status %></td>
+          <td><%= empty_room.thanks_money %></td>
+          <td><%= empty_room.thanks_money_month %></td> -->
+
+          <td>
+            <% if empty_room.deposit_status == 0 %>
+              <%= empty_room.deposit %>円
+            <% else %>
+              <%= empty_room.deposit_month %>ヶ月
+            <% end %>
+          </td>
+          <!-- <td><%= empty_room.deposit_status %></td>
+          <td><%= empty_room.deposit %></td>
+          <td><%= empty_room.deposit_month %></td> -->
+
+          <td><%= empty_room.station %></td>
+
+          <td><%= get_parking_status_name(empty_room.parking_status) %></td>
+          <td><%= empty_room.parking %>円</td>
+          <td><%= get_pet_info(empty_room.pet) %></td>
+          <td><%= get_gas_name(empty_room.gas) %></td>
+          <td><%= empty_room.memo %></td>
+          <td><%= empty_room.key %></td>
+          <!-- <td><%= link_to 'Show', empty_room %></td> -->
+          <td>
+            <% if empty_room.url_info.present? %>
+              <%= link_to "sumo", empty_room.url_info, class: "btn btn-primary "  %>
+            <% end %>
+          </td>
+
+          <td><%= link_to 'Edit', edit_empty_room_path(empty_room) %></td>
+          <td><%= link_to 'Destroy', empty_room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h4>空室物件一覧</h4>
+
+<div class="search_box">
+
+  <h5 class= "search_box_title"><%= t('item.search_title') %></h5>
+
+  <%= form_with scope: :conditions, url:index_search_empty_rooms_path,method: :get ,remote: true do |form| %>
+
+    <div class="search_box_cell search_cell_1_2">
+      <%= form.label "物件名" ,class: "search_label" %>
+      <%= form.text_field :name %>
+      <%# <%= form.label ":" + current_user.name,id: :indicate_user_name  %>
+    </div>
+
+
+    <div class="search_box_line">
+      <%= form.submit "検索" , id: "btn btn-primary "  %>
+    </div>
+  <% end %>
+</div>
+
+
+<div class = "index_table" id = "index_table" >
+  
+  <%= render 'index_table', empty_rooms: @empty_rooms %>
+
+</div>
+<br>
+
+<%= link_to 'New Empty Room', new_empty_room_path %>

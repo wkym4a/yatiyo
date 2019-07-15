@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  arrangement: 1
+  name: MyString
+  number: MyString
+  leave_status: 1
+  day_to_leave: 2019-07-15
+  benefit: MyString
+  day_to_enter: MyString
+  area: 1.5
+  rent: 1
+  common_fee: 1
+  thanks_money_status: 1
+  thanks_money: 1
+  thanks_money_month: 1.5
+  deposit_status: 1
+  deposit: 1
+  deposit_month: 1.5
+  station: MyString
+  parking_status: 1
+  parking: 1
+  pet: 1
+  gas: 1
+  memo: MyString
+  key: MyString
+
+two:
+  status: 1
+  arrangement: 1
+  name: MyString
+  number: MyString
+  leave_status: 1
+  day_to_leave: 2019-07-15
+  benefit: MyString
+  day_to_enter: MyString
+  area: 1.5
+  rent: 1
+  common_fee: 1
+  thanks_money_status: 1
+  thanks_money: 1
+  thanks_money_month: 1.5
+  deposit_status: 1
+  deposit: 1
+  deposit_month: 1.5
+  station: MyString
+  parking_status: 1
+  parking: 1
+  pet: 1
+  gas: 1
+  memo: MyString
+  key: MyString

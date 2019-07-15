@@ -1,0 +1,257 @@
+<%= form_with(model: empty_room, local: true) do |form| %>
+  <% if empty_room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(empty_room.errors.count, "error") %> prohibited this empty_room from being saved:</h2>
+
+      <ul>
+      <% empty_room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="line_info">
+    <%= form.label "進捗" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :status, 0 %><%= "未定" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :status, 1 %><%= "1番手あり" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :status, 2 %><%= "審査中" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :status, 3 %><%= "その他" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :status ,class: "line_content_2"%> %>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "間取" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 0 %><%= "1R" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 1 %><%= "1K" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 2 %><%= "1DK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 3 %><%= "1LDK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 4 %><%= "2K" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 5 %><%= "2DK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 6 %><%= "2LDK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 7 %><%= "3K" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 8 %><%= "3DK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 9 %><%= "3LDK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 10 %><%= "4K" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 11 %><%= "4DK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 12 %><%= "4LDK" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :arrangement, 13 %><%= "5K以上" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :arrangement ,class: "line_content_2"%> %>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "アパート名" ,class: "line_content_1"%>
+    <%= form.text_field :name ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "室番" ,class: "line_content_1"%>
+    <%= form.text_field :number ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "空き状態" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :leave_status, 0 %><%= "現空" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :leave_status, 9 %><%= "入居中" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :leave_status ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "退室予定日" ,class: "line_content_1"%>
+    <%= form.date_field :day_to_leave ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "Fレント、特典等" ,class: "line_content_1"%>
+    <%= form.text_field :benefit ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "入居可時期" ,class: "line_content_1"%>
+    <%= form.text_field :day_to_enter ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "面積（㎡）" ,class: "line_content_1"%>
+    <%= form.text_field :area ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "賃料" ,class: "line_content_1"%>
+    <%= form.number_field :rent ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "共益費" ,class: "line_content_1"%>
+    <%= form.number_field :common_fee ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "礼金" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :thanks_money_status, 0 %><%= "金額" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :thanks_money_status, 1 %><%= "月数" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :thanks_money_status ,class: "line_content_2"%> %>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "礼金（金額）" ,class: "line_content_1"%>
+    <%= form.number_field :thanks_money ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "礼金（月数）" ,class: "line_content_1"%>
+    <%= form.text_field :thanks_money_month ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "敷金" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :deposit_status, 0 %><%= "金額" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :deposit_status, 1 %><%= "月数" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :deposit_status ,class: "line_content_2"%> %>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "敷金（金額）" ,class: "line_content_1"%>
+    <%= form.number_field :deposit ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "敷金（月数）" ,class: "line_content_1"%>
+    <%= form.text_field :deposit_month ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "最寄り駅" ,class: "line_content_1"%>
+    <%= form.text_field :station ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "駐車場" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :parking_status, 0 %><%= "あり（有料）" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :parking_status, 1 %><%= "空きなし" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :parking_status, 2 %><%= "あり（無料）" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :parking_status, 3 %><%= "無し" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :parking_status ,class: "line_content_2"%> %>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "駐車場料金" ,class: "line_content_1"%>
+    <%= form.number_field :parking ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "ペット" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :pet, 0 %><%= "可" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :pet, 9 %><%= "不可" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :pet ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "ガス" ,class: "line_content_1"%>
+    <span class = "input_radio_btn_line">
+      <label class = "input_radio_btn">
+        <%= form.radio_button :gas, 0 %><%= "東京ガス" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :gas, 1 %><%= "プロパン" %>
+      </label>
+      <label class = "input_radio_btn">
+        <%= form.radio_button :gas, 2 %><%= "オール電化" %>
+      </label>
+    </span>
+    <%# <%= form.number_field :gas ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "備考" ,class: "line_content_1"%>
+    <%= form.text_field :memo ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "鍵" ,class: "line_content_1"%>
+    <%= form.text_field :key ,class: "line_content_2"%>
+  </div>
+
+  <div class="line_info">
+    <%= form.label "スーモURL" ,class: "line_content_1"%>
+    <%= form.text_field :url_info ,class: "line_content_2"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

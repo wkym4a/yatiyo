@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_233257) do
+ActiveRecord::Schema.define(version: 2019_07_15_063656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "empty_rooms", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.integer "arrangement", null: false
+    t.string "name", limit: 40, null: false
+    t.string "number", limit: 20, null: false
+    t.integer "leave_status", default: 0, null: false
+    t.date "day_to_leave"
+    t.string "benefit", null: false
+    t.string "day_to_enter", null: false
+    t.float "area", null: false
+    t.integer "rent", null: false
+    t.integer "common_fee"
+    t.integer "thanks_money_status", default: 0, null: false
+    t.integer "thanks_money"
+    t.float "thanks_money_month"
+    t.integer "deposit_status", default: 0, null: false
+    t.integer "deposit"
+    t.float "deposit_month"
+    t.string "station", limit: 120, null: false
+    t.integer "parking_status", default: 0, null: false
+    t.integer "parking"
+    t.integer "pet", null: false
+    t.integer "gas", null: false
+    t.string "memo", null: false
+    t.string "key", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "url_info"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
